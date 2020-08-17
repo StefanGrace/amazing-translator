@@ -22,7 +22,7 @@ public class App
                 try {
                     inputNumber = Integer.parseInt(scanner.nextLine());
                     if (inputNumber < 1 || inputNumber > 30) {
-                        System.out.println("The program only exepts number from 1 to 30");
+                        System.out.println("Number must be from 1 to 30");
                         inputNumber = 0;
                     }
                 } catch (Exception e) {
