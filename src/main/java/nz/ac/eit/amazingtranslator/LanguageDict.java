@@ -9,6 +9,8 @@ public class LanguageDict {
             "elf", "zwölf", "dreizehn", "vierzehn", "fünfzehn", "sechszehn", "siebzehn", "achtzehn", "neunzehn", "zwanzig",
             "einundzwanzig", "zweiundzwanzig", "dreiundzwanzig", "vierundzwanzig", "fünfundzwanzig", "sechsundzwanzig", "siebenundzwanzig", "achtundzwanzig", "neunundzwanzig", "dreißig"};
 
+    private IDictionaries dict;
+
     public int[] LanguageDict() {
         // return the size of French and German dictionaries for the purpose of testing, NOT needed for app
         return new int[]{frenchNumbers.length, germanNumbers.length};
@@ -29,10 +31,17 @@ public class LanguageDict {
         try {
             return getDict(language)[number - 1];
         } catch (UnsupportedLanguageException ule) {
-            throw new UnsupportedLanguageException();
+            throw ule;
         } catch (IndexOutOfBoundsException ioobe) {
             throw new InputOutOfRangeException();
         }
     }
 
+    public IDictionaries getDict() {
+        return dict;
+    }
+
+    public void setDict(IDictionaries dict) {
+        this.dict = dict;
+    }
 }
