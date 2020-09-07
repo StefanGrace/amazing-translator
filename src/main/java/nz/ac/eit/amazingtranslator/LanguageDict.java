@@ -11,7 +11,7 @@ public class LanguageDict {
 
     private IDictionaries dict;
 
-    public int[] LanguageDict() {
+    public int[] checkDictionaries() {
         // return the size of French and German dictionaries for the purpose of testing, NOT needed for app
         return new int[]{frenchNumbers.length, germanNumbers.length};
     }
