@@ -128,7 +128,7 @@ public class LanguageDictTest {
         try {
             Assert.assertEquals("douze shoud return 12", 12, ld.getNumber("douze"));
         } catch (WordNotInDictException wnide) {
-            Assert.fail("douze shoud return 12");
+            Assert.fail("douze should return 12");
         }
     }
 
@@ -136,7 +136,7 @@ public class LanguageDictTest {
     public void getNumber_a_returns_12() throws WordNotInDictException {
         LanguageDict ld = new LanguageDict();
         ld.getNumber("a");
-        Assert.fail("a shoud fail");
+        Assert.fail("a should fail");
     }
 
 }

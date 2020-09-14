@@ -25,10 +25,33 @@ public class InputCollector {
     }
 
     public boolean collectExitChoice(String input) {
-        return !input.equals("1"); // return true for input "1", false for anything else
+        return !input.equals("1"); // return false for input "1", true for anything else
     }
 
     public String collectWord(String input) throws WordNotInDictException {
-        return "";
+        LanguageDict ld = new LanguageDict();
+        String word = input.toLowerCase();
+        boolean wordInDict = false;
+        try {
+            String[] frenchWords = ld.getDict("french");
+            for (int i = 0; i < frenchWords.length; i++) {
+                if (word.equals(frenchWords[i])) {
+                    wordInDict = true;
+                }
+            }
+            String[] germanWords = ld.getDict("german");
+            for (int i = 0; i < germanWords.length; i++) {
+                if (word.equals(germanWords[i])) {
+                    wordInDict = true;
+                }
+            }
+        } catch (UnsupportedLanguageException ule) {
+            throw new WordNotInDictException();
+        }
+        if (wordInDict) {
+            return word;
+        } else {
+            throw new WordNotInDictException();
+        }
     }
 }

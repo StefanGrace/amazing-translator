@@ -38,7 +38,23 @@ public class LanguageDict {
     }
 
     public int getNumber(String word) throws WordNotInDictException {
-        return 1;
+        try {
+            String[] frenchNumbers = getDict("french");
+            for (int i = 0; i < frenchNumbers.length; i++) {
+                if (word.equals(frenchNumbers[i])) {
+                    return i + 1;
+                }
+            }
+            String[] germanNumbers = getDict("german");
+            for (int i = 0; i < germanNumbers.length; i++) {
+                if (word.equals(germanNumbers[i])) {
+                    return i + 1;
+                }
+            }
+        } catch (UnsupportedLanguageException ule) {
+            throw new WordNotInDictException();
+        }
+        throw new WordNotInDictException();
     }
 
     public IDictionaries getDict() {

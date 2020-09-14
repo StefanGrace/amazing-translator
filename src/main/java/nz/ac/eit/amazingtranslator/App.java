@@ -15,24 +15,22 @@ public class App
         InputCollector ic = new InputCollector();
         LanguageDict ld = new LanguageDict();
 
-
         boolean exit = false;
-
         while (!exit) {
+
             // ask user for number
             int inputNumber = 0;
             String inputWord = "";
-            while (inputNumber == 0) {
+            while (inputNumber == 0 && inputWord.length() == 0) {
                 System.out.print("Provide a number: ");
                 String inputString = scanner.nextLine();
                 try {
                     inputNumber = ic.collectNumber(inputString);
                 } catch (InputNotIntException inie) {
-                    //System.out.println("You must enter an integer");
                     try {
                         inputWord = ic.collectWord(inputString);
                     } catch (WordNotInDictException wnide){
-                        System.out.println("The word\" " + inputWord + " \" is not a number from 1 to 30 in French is German");
+                        System.out.println("The word \"" + inputString + "\" is not a number from 1 to 30 in French or German");
                     }
                     inputNumber = 0;
                 } catch (InputOutOfRangeException ioore) {
