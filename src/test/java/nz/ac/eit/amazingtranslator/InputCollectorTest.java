@@ -159,4 +159,32 @@ public class InputCollectorTest {
         Assert.assertTrue(ic.collectExitChoice("e"));
     }
 
+    @Test
+    public void collectWord_douze_returns_douze() {
+        InputCollector ic = new InputCollector();
+        try {
+            Assert.assertEquals("douze shoud return douze", "douze", ic.collectWord("douze"));
+        } catch (WordNotInDictException wnide) {
+            Assert.fail("douze shoud return douze");
+        }
+    }
+
+    @Test
+    public void collectWord_Douze_returns_douze() {
+        InputCollector ic = new InputCollector();
+        try {
+            Assert.assertEquals("Douze shoud return douze", "douze", ic.collectWord("Douze"));
+        } catch (WordNotInDictException wnide) {
+            Assert.fail("Douze shoud return douze");
+        }
+    }
+
+    @Test (expected = WordNotInDictException.class)
+    public void collectWord_a_throws_WordNotInDictException() throws WordNotInDictException {
+        InputCollector ic = new InputCollector();
+        ic.collectWord("a");
+        Assert.fail("a shoud fail");
+    }
+
+
 }

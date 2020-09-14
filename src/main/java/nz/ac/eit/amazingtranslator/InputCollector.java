@@ -27,4 +27,8 @@ public class InputCollector {
     public boolean collectExitChoice(String input) {
         return !input.equals("1"); // return true for input "1", false for anything else
     }
+
+    public String collectWord(String input) throws WordNotInDictException {
+        return "";
+    }
 }

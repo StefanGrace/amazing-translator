@@ -37,6 +37,10 @@ public class LanguageDict {
         }
     }
 
+    public int getNumber(String word) throws WordNotInDictException {
+        return 1;
+    }
+
     public IDictionaries getDict() {
         return dict;
     }
